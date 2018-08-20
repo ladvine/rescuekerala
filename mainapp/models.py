@@ -395,22 +395,13 @@ class Announcements(models.Model):
 
 class ReliefCampData(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
-    description = models.TextField(blank=False, null=False, verbose_name="Details of requirements")
-    file = models.FileField(blank=True, upload_to='camp_data')
-    district = models.CharField(
-        max_length=15,
-        choices=districts,
-        verbose_name='District - ജില്ല',
-        null=False,
-        blank=False
+    document_name = models.CharField(
+        max_length=255,
+        null=True,
+        blank=True,
+        verbose_name="Document name"
     )
     tag = models.CharField(max_length=255, null=True, blank=True)
-    phone = models.CharField(
-        max_length=11,
-        verbose_name="Phone - ഫോണ്‍ നമ്പര്‍",
-        null=False,
-        blank=False
-    )
 
     class Meta:
         verbose_name = 'Relief: Camp Data'
